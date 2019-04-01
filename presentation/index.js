@@ -6,10 +6,7 @@ import {
   BlockQuote,
   Cite,
   Deck,
-  Heading,
   Image,
-  List,
-  ListItem,
   Notes,
   Quote,
   Slide,
@@ -20,7 +17,12 @@ import {
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
-  formidagon: require('../assets/formidable-logo.svg'),
+  start: require('../assets/start.jpg'),
+  weldingMachine: require('../assets/welding-machine.jpg'),
+  drywallLift: require('../assets/drywall-lift.jpg'),
+  demotivatedIt: require('../assets/demotivated-it.png'),
+  jsFatigue: require('../assets/js-fatigue.jpg'),
+  disasterGirl: require('../assets/disaster-girl.jpg'),
   executioner: require('../assets/executioner.jpg'),
   theTriumphOfDeath: require('../assets/the-triumph-of-death.jpg'),
   plagueDoctor: require('../assets/plague-doctor.png'),
@@ -43,7 +45,9 @@ const theme = createTheme(
     quaternary: '#CECECE',
     contrast: 'black',
     blood: '#bb0a1e',
-    bronze: '#cd7f32'
+    bronze: '#cd7f32',
+    asphalt: '#4a5a67',
+    fire: '#e25822'
   },
   {
     primary: 'Montserrat',
@@ -69,7 +73,7 @@ const FullScreenVideo = ({ name, format = 'webm' }) => (
 );
 
 const FullScreenImage = ({
-  name,
+  src,
   align = 'center',
   style = {}
 }) => {
@@ -97,7 +101,13 @@ const FullScreenImage = ({
         ...style
       }}
     >
-      <Image src={name} style={{ margin }} />
+      <Image
+        src={src}
+        style={{
+          height: '100%',
+          margin
+        }}
+      />
     </div>
   );
 };
@@ -110,7 +120,7 @@ export default class Presentation extends React.Component {
         transitionDuration={500}
         theme={theme}
       >
-        <Slide transition={['zoom']} bgColor="primary">
+        {/* <Slide transition={['zoom']} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Spectacle Boilerplate
           </Heading>
@@ -154,23 +164,44 @@ export default class Presentation extends React.Component {
             <ListItem>Item 3</ListItem>
             <ListItem>Item 4</ListItem>
           </List>
-        </Slide>
-        {/* <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite margin="10px 0 0 30px">Author</Cite>
-          </BlockQuote>
+        </Slide> */}
+        <Slide bgImage={images.start} />
+        <Slide>
+          <Image src={images.weldingMachine} height="80vh" />
         </Slide>
         <Slide>
-          <Image src={images.goodWork} width={'100%'} />
-          <Notes>gifs work too</Notes>
+          <Image src={images.drywallLift} height="85vh" />
+          <Notes>Подъемник для гипсокартона</Notes>
         </Slide>
-        <Slide bgImage={images.goodWork}>
-          <Text size={6} textColor="secondary">
-            Standard text
+        <Slide>
+          <Image src={images.demotivatedIt} height="60vh" />
+          <Notes>Demotivated IT</Notes>
+        </Slide>
+        <Slide>
+          <FullScreenImage
+            src={images.jsFatigue}
+            style={{ paddingBottom: 30 }}
+          />
+          <Notes>JavaScript Fatigue</Notes>
+        </Slide>
+        <Slide bgColor="asphalt">
+          <FullScreenImage
+            src={images.disasterGirl}
+          />
+          <Text
+            textColor="fire"
+            textSize={'3.3em'}
+            bold
+            style={{
+              position: 'absolute',
+              bottom: 50,
+              left: 50
+            }}
+          >
+            ВЫГОРАНИЕ
           </Text>
-          <Notes>background image</Notes>
-        </Slide> */}
+          <Notes>Выгорание</Notes>
+        </Slide>
         <Slide
           bgColor="contrast"
         >
@@ -185,7 +216,7 @@ export default class Presentation extends React.Component {
           bgDarken={0.6}
         >
           <FullScreenImage
-            name={images.plagueDoctor}
+            src={images.plagueDoctor}
             align="left"
             style={{ paddingLeft: 100 }}
           />
