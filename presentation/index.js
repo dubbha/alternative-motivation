@@ -11,11 +11,13 @@ import {
   Quote,
   Slide,
   Text,
-  Appear
+  Appear,
+  Heading
 } from 'spectacle';
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
+import { fontFace } from 'emotion';
 
 const images = {
   start: require('../assets/start.jpg'),
@@ -124,13 +126,6 @@ const FullScreenImage = ({
 };
 
 export default class Presentation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: '' // replaceable text
-    };
-  }
-
   render() {
     return (
       <Deck
@@ -138,51 +133,6 @@ export default class Presentation extends React.Component {
         transitionDuration={500}
         theme={theme}
       >
-        {/* <Slide transition={['zoom']} bgColor="primary">
-          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
-          </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" fit bold>
-            open the presentation/index.js file to get started
-          </Text>
-        </Slide>
-        <Slide bgColor="secondary">
-          <Image src={images.formidagon} width={800} />
-        </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>
-            Typography
-          </Heading>
-          <Heading size={1} textColor="secondary">
-            Heading 1
-          </Heading>
-          <Heading size={2} textColor="secondary">
-            Heading 2
-          </Heading>
-          <Heading size={3} textColor="secondary">
-            Heading 3
-          </Heading>
-          <Heading size={4} textColor="secondary">
-            Heading 4
-          </Heading>
-          <Heading size={5} textColor="secondary">
-            Heading 5
-          </Heading>
-          <Text size={6} textColor="secondary">
-            Standard text
-          </Text>
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>
-            Standard List
-          </Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
-          </List>
-        </Slide> */}
         <Slide bgImage={images.start} />
         <Slide>
           <Image src={images.weldingMachine} height="80vh" />
@@ -251,12 +201,101 @@ export default class Presentation extends React.Component {
         <Slide bgColor="secondary" bgImage={images.busDriver} />
         <Slide bgColor="secondary" bgImage={images.mazay} />
         <Slide bgColor="secondary" bgImage={images.metro} />
-        <Slide bgColor="secondary" bgImage={images.ded} />
-        <Slide bgColor="secondary" bgImage={images.hadfield} />
-        <Slide bgColor="secondary" bgImage={images.steel} />
-        <Slide bgColor="secondary" bgImage={images.ships} />
+        <Slide bgColor="secondary" bgImage={images.ded}>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 50,
+              left: 50
+            }}
+          >
+            <Text textColor="primary" textSize={'1.2em'} italic style={{ textAlign: 'right' }}>
+              Александр Дубовик
+            </Text>
+            <Text textColor="primary" textSize={'1.2em'} italic style={{ textAlign: 'right' }}>
+              советский летчик
+            </Text>
+          </div>
+        </Slide>
+        <Slide bgColor="secondary" bgImage={images.hadfield}>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 50,
+              left: 50
+            }}
+          >
+            <Text textColor="primary" textSize={'1.2em'} italic style={{ textAlign: 'right' }}>
+              Крис Хэдфилд
+            </Text>
+            <Text textColor="primary" textSize={'1.2em'} italic style={{ textAlign: 'right' }}>
+              канадский астронавт
+            </Text>
+          </div>
+        </Slide>
+        <Slide bgColor="secondary" bgImage={images.steel}>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 50,
+              left: 50
+            }}
+          >
+            <Text textColor="primary" textSize={'1.2em'} italic>
+              Металлургический завод
+            </Text>
+            <Text textColor="primary" textSize={'1.2em'} italic style={{ textAlign: 'right' }}>
+              Ляонин, Китай
+            </Text>
+          </div>
+          <Appear>
+            <BlockQuote
+              bgColor="rgba(0,0,0,.7)"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                padding: '.5em',
+                margin: '1em'
+              }}
+            >
+              <Quote textSize="1em" height={'1.4em'}>Мы готовы принести себя в жертву,</Quote>
+              <Quote textSize="1em" height={'1.4em'}>как герои труда прошлого,</Quote>
+              <Quote textSize="1em" height={'1.4em'}>во имя сталелитейной индустрии.</Quote>
+            </BlockQuote>
+          </Appear>
+        </Slide>
+        <Slide bgColor="secondary" bgImage={images.ships}>
+          <div
+            style={{
+              position: 'absolute',
+              top: 50,
+              left: 200
+            }}
+          >
+            <Text textColor="primary" textSize={'1.2em'} italic>
+              Кладбище кораблей
+            </Text>
+            <Text textColor="primary" textSize={'1.2em'} italic style={{ textAlign: 'right' }}>
+              Гадани, Пакистан
+            </Text>
+          </div>
+        </Slide>
         <Slide bgColor="secondary" bgImage={images.sulfur}>
-          <Notes>Серный Карьер, Индонезия</Notes>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 50,
+              right: 50
+            }}
+          >
+            <Text textColor="primary" textSize={'1.2em'} italic>
+              Действующий вулкан Иджен
+            </Text>
+            <Text textColor="primary" textSize={'1.2em'} italic style={{ textAlign: 'right' }}>
+              Индонезия
+            </Text>
+          </div>
         </Slide>
         <Slide bgColor="secondary">
           <FullScreenImage src={images.workingmansDeath} />
@@ -301,6 +340,22 @@ export default class Presentation extends React.Component {
             <Quote textSize={'1.4em'} height={'1.2em'}>Работа-то с людьми.</Quote>
             <Cite margin="10px 0 0 30px" textColor="bronze">Владимир Вишневский</Cite>
           </BlockQuote>
+        </Slide>
+        <Slide bgImage={images.start}>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 250,
+              left: 250
+            }}
+          >
+            <Text textColor="primary" textSize={'1.6em'} bold>
+              да пребудет
+            </Text>
+            <Text textColor="primary" textSize={'1.6em'} bold>
+              с вами искра
+            </Text>
+          </div>
         </Slide>
       </Deck>
     );
