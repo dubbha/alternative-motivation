@@ -33,7 +33,10 @@ const images = {
   metro: require('../assets/metro.jpg'),
   ded: require('../assets/ded.jpg'),
   hadfield: require('../assets/hadfield.png'),
+  ships: require('../assets/ships.jpg'),
+  steel: require('../assets/steel.jpg'),
   sulfur: require('../assets/sulfur.jpg'),
+  workingmansDeath: require('../assets/workingmans-death.jpg'),
   executioner: require('../assets/executioner.jpg'),
   theTriumphOfDeath: require('../assets/the-triumph-of-death.jpg'),
   plagueDoctor: require('../assets/plague-doctor.png'),
@@ -121,6 +124,13 @@ const FullScreenImage = ({
 };
 
 export default class Presentation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '' // replaceable text
+    };
+  }
+
   render() {
     return (
       <Deck
@@ -220,9 +230,11 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
         <Slide>
-          <Text textColor="blue" fit bold>
-            <span style={{ color: 'black' }}>NON-</span>STEVE
-          </Text>
+          <Appear>
+            <Text textColor="blue" fit bold>
+              <span style={{ color: 'black' }}>NON-</span>STEVE
+            </Text>
+          </Appear>
           <Appear>
             <Text textColor="fire" fit bold>
               JOBS
@@ -241,8 +253,13 @@ export default class Presentation extends React.Component {
         <Slide bgColor="secondary" bgImage={images.metro} />
         <Slide bgColor="secondary" bgImage={images.ded} />
         <Slide bgColor="secondary" bgImage={images.hadfield} />
+        <Slide bgColor="secondary" bgImage={images.steel} />
+        <Slide bgColor="secondary" bgImage={images.ships} />
         <Slide bgColor="secondary" bgImage={images.sulfur}>
           <Notes>Серный Карьер, Индонезия</Notes>
+        </Slide>
+        <Slide bgColor="secondary">
+          <FullScreenImage src={images.workingmansDeath} />
         </Slide>
         <Slide bgColor="secondary">
           <FullScreenVideo name="locdoc" />
