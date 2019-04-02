@@ -10,7 +10,8 @@ import {
   Notes,
   Quote,
   Slide,
-  Text
+  Text,
+  Appear
 } from 'spectacle';
 
 // Import theme
@@ -23,6 +24,16 @@ const images = {
   demotivatedIt: require('../assets/demotivated-it.png'),
   jsFatigue: require('../assets/js-fatigue.jpg'),
   disasterGirl: require('../assets/disaster-girl.jpg'),
+  matrix: require('../assets/matrix.jpg'),
+  ukrsat: require('../assets/ukrsat.jpg'),
+  ukrsat2: require('../assets/ukrsat2.jpg'),
+  taxiDriver: require('../assets/taxi-driver.jpg'),
+  busDriver: require('../assets/bus-driver.jpg'),
+  mazay: require('../assets/mazay.png'),
+  metro: require('../assets/metro.jpg'),
+  ded: require('../assets/ded.jpg'),
+  hadfield: require('../assets/hadfield.png'),
+  sulfur: require('../assets/sulfur.jpg'),
   executioner: require('../assets/executioner.jpg'),
   theTriumphOfDeath: require('../assets/the-triumph-of-death.jpg'),
   plagueDoctor: require('../assets/plague-doctor.png'),
@@ -40,14 +51,11 @@ require('normalize.css');
 const theme = createTheme(
   {
     primary: 'white',
-    secondary: '#1F2022',
-    tertiary: '#03A9FC',
-    quaternary: '#CECECE',
-    contrast: 'black',
+    secondary: 'black',
     blood: '#bb0a1e',
     bronze: '#cd7f32',
-    asphalt: '#4a5a67',
-    fire: '#e25822'
+    asphalt: '#222f38',
+    fire: '#c2261f'
   },
   {
     primary: 'Montserrat',
@@ -80,10 +88,10 @@ const FullScreenImage = ({
   let margin;
   switch (align) {
     case 'left':
-      margin = '0 50% 0 0';
+      margin = '0 auto 0 0';
       break;
     case 'right':
-      margin = '0 0 0 50%';
+      margin = '0 0 0 auto';
       break;
     case 'center':
     default:
@@ -187,10 +195,11 @@ export default class Presentation extends React.Component {
         <Slide bgColor="asphalt">
           <FullScreenImage
             src={images.disasterGirl}
+            align="right"
           />
           <Text
             textColor="fire"
-            textSize={'3.3em'}
+            textSize={'3.5em'}
             bold
             style={{
               position: 'absolute',
@@ -202,9 +211,40 @@ export default class Presentation extends React.Component {
           </Text>
           <Notes>Выгорание</Notes>
         </Slide>
-        <Slide
-          bgColor="contrast"
-        >
+        <Slide>
+          <FullScreenImage src={images.matrix} />
+          <Appear>
+            <Text textColor="primary" fit bold>
+              Альтернативная Мотивация
+            </Text>
+          </Appear>
+        </Slide>
+        <Slide>
+          <Text textColor="blue" fit bold>
+            <span style={{ color: 'black' }}>NON-</span>STEVE
+          </Text>
+          <Appear>
+            <Text textColor="fire" fit bold>
+              JOBS
+            </Text>
+          </Appear>
+        </Slide>
+        <Slide bgColor="secondary">
+          <FullScreenImage src={images.ukrsat} />
+        </Slide>
+        <Slide bgColor="secondary">
+          <FullScreenImage src={images.ukrsat2} />
+        </Slide>
+        <Slide bgColor="secondary" bgImage={images.taxiDriver} />
+        <Slide bgColor="secondary" bgImage={images.busDriver} />
+        <Slide bgColor="secondary" bgImage={images.mazay} />
+        <Slide bgColor="secondary" bgImage={images.metro} />
+        <Slide bgColor="secondary" bgImage={images.ded} />
+        <Slide bgColor="secondary" bgImage={images.hadfield} />
+        <Slide bgColor="secondary" bgImage={images.sulfur}>
+          <Notes>Серный Карьер, Индонезия</Notes>
+        </Slide>
+        <Slide bgColor="secondary">
           <FullScreenVideo name="locdoc" />
           <Notes>Fullscreen video</Notes>
         </Slide>
