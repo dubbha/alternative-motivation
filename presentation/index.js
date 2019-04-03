@@ -197,7 +197,7 @@ export default class Presentation extends React.Component {
         <Slide bgColor="secondary" bgImage={images.busDriver} />
         {/* <Slide bgColor="secondary" bgImage={images.mazay} /> */}
         <Slide bgColor="secondary" bgImage={images.metro} />
-        <Slide bgColor="secondary" bgImage={images.ded}>
+        {/* <Slide bgColor="secondary" bgImage={images.ded}>
           <div
             style={{
               position: 'absolute',
@@ -212,7 +212,7 @@ export default class Presentation extends React.Component {
               советский летчик
             </Text>
           </div>
-        </Slide>
+        </Slide> */}
         <Slide bgColor="secondary" bgImage={images.hadfield}>
           <div
             style={{
@@ -293,13 +293,13 @@ export default class Presentation extends React.Component {
             </Text>
           </div>
         </Slide>
-        <Slide bgColor="secondary">
+        {/* <Slide bgColor="secondary">
           <FullScreenImage src={images.workingmansDeath} />
         </Slide>
         <Slide bgColor="secondary">
           <FullScreenVideo name="locdoc" />
           <Notes>Fullscreen video</Notes>
-        </Slide>
+        </Slide> */}
         <Slide bgImage={images.gladiator}>
           <Notes>Gladiator</Notes>
         </Slide>
