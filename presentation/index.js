@@ -11,27 +11,25 @@ import {
   Quote,
   Slide,
   Text,
-  Appear,
-  Heading
+  Appear
 } from 'spectacle';
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
-import { fontFace } from 'emotion';
 
 const images = {
   start: require('../assets/start.jpg'),
   weldingMachine: require('../assets/welding-machine.jpg'),
   drywallLift: require('../assets/drywall-lift.jpg'),
   demotivatedIt: require('../assets/demotivated-it.png'),
-  jsFatigue: require('../assets/js-fatigue.jpg'),
+  // jsFatigue: require('../assets/js-fatigue.jpg'),
   disasterGirl: require('../assets/disaster-girl.jpg'),
   matrix: require('../assets/matrix.jpg'),
   ukrsat: require('../assets/ukrsat.jpg'),
   ukrsat2: require('../assets/ukrsat2.jpg'),
   taxiDriver: require('../assets/taxi-driver.jpg'),
   busDriver: require('../assets/bus-driver.jpg'),
-  mazay: require('../assets/mazay.png'),
+  // mazay: require('../assets/mazay.png'),
   metro: require('../assets/metro.jpg'),
   ded: require('../assets/ded.jpg'),
   hadfield: require('../assets/hadfield.png'),
@@ -145,13 +143,13 @@ export default class Presentation extends React.Component {
           <Image src={images.demotivatedIt} height="60vh" />
           <Notes>Demotivated IT</Notes>
         </Slide>
-        <Slide>
+        {/* <Slide>
           <FullScreenImage
             src={images.jsFatigue}
             style={{ paddingBottom: 30 }}
           />
           <Notes>JavaScript Fatigue</Notes>
-        </Slide>
+        </Slide> */}
         <Slide bgColor="asphalt">
           <FullScreenImage
             src={images.disasterGirl}
@@ -173,11 +171,9 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <FullScreenImage src={images.matrix} />
-          <Appear>
-            <Text textColor="primary" fit bold>
-              Альтернативная Мотивация
-            </Text>
-          </Appear>
+          <Text textColor="primary" fit bold>
+            Альтернативная Мотивация
+          </Text>
         </Slide>
         <Slide>
           <Appear>
@@ -199,7 +195,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide bgColor="secondary" bgImage={images.taxiDriver} />
         <Slide bgColor="secondary" bgImage={images.busDriver} />
-        <Slide bgColor="secondary" bgImage={images.mazay} />
+        {/* <Slide bgColor="secondary" bgImage={images.mazay} /> */}
         <Slide bgColor="secondary" bgImage={images.metro} />
         <Slide bgColor="secondary" bgImage={images.ded}>
           <div
